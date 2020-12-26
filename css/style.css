@@ -1,0 +1,87 @@
+body {
+    background-image: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
+}
+
+/* Navbar color */
+.navbar {
+    background: #141c2a;
+}
+
+/*Sun Styling*/
+.sun {
+    font-size: 25px;
+    color: #fc5400;
+}
+
+/*Scrollable Weather Cards*/
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.card {
+    justify-content: center;
+    display: inline-block;
+    width: 250px;
+}
+
+/*Mobile Map Styling */
+#map {
+    width: 100%;
+    height: 250px;
+}
+
+/*Font Size for Navbar Text and Brand*/
+.navbar-brand {
+    font-size: 18px;
+}
+.navbar-text {
+    font-size: 14px;
+}
+
+/*Styling for Find Button*/
+.search-btn {
+    display: inline-block;
+    width: 80%;
+    margin-top: 10px;
+}
+
+
+/* Medium devices (tablets, 574px and up) */
+@media screen and (min-width:574px) {
+    #map {
+        width: 100%;
+        height: 600px;
+    }
+
+    /*Styling for Find Button*/
+    .search-btn {
+        display: inline-block;
+        width: 100px;
+        margin-top: 0;
+    }
+}
+
+/* Extra large devices (large desktops and up) */
+@media screen and (min-width:1350px) {
+    .weather-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #map {
+        width: 100%;
+        height: 780px;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .navbar-text {
+        font-size: 16px;
+    }
+}

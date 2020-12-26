@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Map Project</title>
+    <!--Mapbox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Mapbox Geocoder Stylesheet-->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"
+    />
+    <!--Font Awesome Script-->
+    <script src="https://kit.fontawesome.com/5eae995560.js" crossorigin="anonymous"></script>
+    <!--Custom stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--Navbar-->
+<header>
+    <nav class="navbar navbar-dark">
+        <span class="navbar-brand mb-0 h1"><i class="fas fa-sun sun text-warning"></i> Weather App</span>
+        <span class="navbar-text text-white font-weight-bold">Current City: <span id="city">San Antonio, Texas 78205, United States</span></span>
+    </nav>
+
+    <form class="form-inline d-flex justify-content-center align-items-center mt-4">
+        <input class="form-control mr-sm-2" type="search" placeholder="City, State" aria-label="Search">
+        <button class="btn btn-warning search-btn" type="submit">Find</button>
+    </form>
+</header>
+
+
+<!--Main Content-->
+<main>
+    <!--Weather Card Container-->
+    <div class="weather-card-container scrolling-wrapper mt-3 mb-3">
+        <!--Weather Cards Will Display Here-->
+    </div>
+
+    <!--Map-->
+    <div id="map"></div>
+<!--    <div id='map' style='width: 100%; height: 600px;'></div>-->
+</main>
+
+
+
+
+
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!--Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<!--Keys JS-->
+<script src="js/keys.js"></script>
+<!--Mapbox Geocoder-->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<!--Custom JS -->
+<script src="js/main.js"></script>
+</body>
+</html>
