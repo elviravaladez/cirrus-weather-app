@@ -20,10 +20,17 @@ body {
     white-space: nowrap;
 }
 
-.card {
+.weather-card {
     justify-content: center;
     display: inline-block;
-    width: 250px;
+    width: 301px;
+    height: 360px;
+    background: white;
+}
+
+/*Making background color of pressure text box transparent*/
+.temperature, .weather-description, .wind, .pressure {
+    background: transparent;
 }
 
 /*Mobile Map Styling */
@@ -33,10 +40,10 @@ body {
 }
 
 /*Font Size for Navbar Text and Brand*/
-.navbar-brand {
+.app-name {
     font-size: 18px;
 }
-.navbar-text {
+.current-city {
     font-size: 14px;
 }
 
@@ -47,8 +54,25 @@ body {
     margin-top: 10px;
 }
 
+/* Small devices */
+@media screen and (min-width:375px) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 350px;
+    }
+}
 
-/* Medium devices (tablets, 574px and up) */
+/* iPhone plus */
+@media screen and (min-width:414px) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 400px;
+    }
+}
+
+
 @media screen and (min-width:574px) {
     #map {
         width: 100%;
@@ -61,10 +85,23 @@ body {
         width: 100px;
         margin-top: 0;
     }
+
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 300px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #map {
+        width: 100%;
+        height: 800px;
+    }
 }
 
 /* Extra large devices (large desktops and up) */
-@media screen and (min-width:1350px) {
+@media screen and (min-width:1600px) {
     .weather-card-container {
         display: flex;
         flex-wrap: wrap;
@@ -77,11 +114,11 @@ body {
         height: 780px;
     }
 
-    .navbar-brand {
+    .app-name {
         font-size: 20px;
     }
 
-    .navbar-text {
+    .current-city {
         font-size: 16px;
     }
 }
