@@ -42,25 +42,45 @@ $(document).ready(function() {
 
         //Creating the Forecast Card
         weatherCard +=
-            `<div class='d-inline-block card-div'>
-                <div class='card weather-card m-2'>
-                    <div class='card-header text-center'>
-                        ${date}
+                `<div class='d-inline-block card-div'>
+                    <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>
+                        <div class='card-body'>
+                            <h5 class='card-title text-center'>${date}</h5>
+                            <p class='text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
+                                   <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
+                            </p>
+                            <p class=' text-center weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
+                                     Humidity: <strong>${weatherConditions.humidity}</strong>
+                            </p>
+                            <p class='text-center wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></p>
+                            <p class='text-center pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul class='list-group list-group-flush'>
-                            <li class='list-group-item text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
-                               <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
-                            </li>
-                            <li class='list-group-item weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
-                                 Humidity: <strong>${weatherConditions.humidity}</strong>
-                            </li>
-                            <li class='list-group-item wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></li>
-                            <li class='list-group-item pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></li>
-                         </ul>
-                    </div>
-                </div>
-            </div>`;
+                </div>`;
+
+
+//            // Original Weather Forecast Cards
+//            //Creating the Forecast Card
+            // weatherCard +=
+        //     `<div class='d-inline-block card-div'>
+        //         <div class='card weather-card m-2 shadow-sm mb-1 rounded'>
+        //             <div class='card-header text-center'>
+        //                 ${date}
+        //             </div>
+        //             <div class="card-body">
+        //                 <ul class='list-group list-group-flush'>
+        //                     <li class='list-group-item text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
+        //                        <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
+        //                     </li>
+        //                     <li class='list-group-item weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
+        //                          Humidity: <strong>${weatherConditions.humidity}</strong>
+        //                     </li>
+        //                     <li class='list-group-item wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></li>
+        //                     <li class='list-group-item pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></li>
+        //                  </ul>
+        //             </div>
+        //         </div>
+        //     </div>`;
 
         //Adding the Forecast Card to the div with a class of weather-card-container
         $(".weather-card-container").append(weatherCard);
