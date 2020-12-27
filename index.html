@@ -27,16 +27,12 @@
         <span class="navbar-text text-white font-weight-bold current-city">Current Location: <span id="city">San Antonio, Texas 78205, United States</span></span>
     </nav>
 
-    <!--Search Location Input and Button -->
-    <form class="form-inline d-flex justify-content-center align-items-center mt-4">
-        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
-        <button id="submitValue" class="btn btn-warning search-btn" type="submit">Find</button>
-    </form>
 </header>
-
 
 <!--Main Content-->
 <main>
+    <!-- Geocoder Search Bar -->
+    <div id="geocoder" class="geocoder"></div>
     <!--Weather Card Container-->
     <div class="weather-card-container scrolling-wrapper mt-3 mb-3">
         <!--Weather Cards Will Display Here-->
