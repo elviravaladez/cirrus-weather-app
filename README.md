@@ -7,7 +7,6 @@ The Weather Map project was developed to provide users with an easy-to-use appli
 * Five-Day Forecast for current location
 * A map with a draggable marker and search bar
   * Once the user drags the marker or utilizes the search bar, the five-day forecast and the current location are updated to correspond with the new location
-
 * A Forecast Includes:
   - Date
   - High / Low Temperature in Fahrenheit 
