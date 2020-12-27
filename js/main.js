@@ -2,11 +2,11 @@ $(document).ready(function() {
     "use strict";
 
     //Displaying the Weather Forecast Initially Displayed on the Webpage
-    updateWeather(29.4252,-98.4916);
+    updateWeather(-98.4916, 29.4252);
 
 
     //Function to Update the Weather on the Webpage
-    function updateWeather(latitude, longitude) {
+    function updateWeather(longitude, latitude) {
         //Ajax Request for 5 Day Forecast
         let getFiveDayForecast = $.get("https://api.openweathermap.org/data/2.5/onecall", {
             APPID: OPEN_WEATHER_APPID,
@@ -118,7 +118,7 @@ $(document).ready(function() {
     //Function to Get Coordinates of the Draggable Marker and Use Those Coordinates Within the updateWeather Function
     function onDragEnd() {
         let lngLat = marker.getLngLat();
-        updateWeather(lngLat.lat, lngLat.lng);
+        updateWeather(lngLat.lng, lngLat.lat);
         reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(data){
             $('#city').html(data);
         });
@@ -130,11 +130,10 @@ $(document).ready(function() {
     // Adding a Mapbox text input to search by location and have the forecast update when a new location is searched
     let geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-        marker: false
+        mapboxgl: mapboxgl
     });
 
-    map.addControl(geocoder);
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 
     //Updating the marker's position to the new search result
@@ -151,7 +150,7 @@ $(document).ready(function() {
             $('#city').html(data);
         });
 
-        updateWeather(lat, long);
+        updateWeather(long, lat);
     });
 
 
@@ -168,24 +167,4 @@ $(document).ready(function() {
                 return data.features[2].place_name;
             });
     }
-
-    // //Updating map with info from search bar
-    // let searchInput = document.getElementById('searchInput');
-    // let submitValue = document.getElementById('submitValue');
-    //
-    // submitValue.addEventListener('click',function (){
-    //     function geocode(search, token) {
-    //         var baseUrl = 'https://api.mapbox.com';
-    //         var endPoint = '/geocoding/v5/mapbox.places/';
-    //         return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-    //             .then(function(res) {
-    //                 return res.json();
-    //                 // to get all the data from the request, comment out the following three lines...
-    //             }).then(function(data) {
-    //                 return data.features[0].center;
-    //             });
-    //     }
-    //
-    //     geocode(searchInput, mapboxToken);
-    // });
 });
