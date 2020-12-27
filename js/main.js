@@ -43,20 +43,22 @@ $(document).ready(function() {
         //Creating the Forecast Card
         weatherCard +=
             `<div class='d-inline-block card-div'>
-                <div class='card m-2'>
+                <div class='card weather-card m-2'>
                     <div class='card-header text-center'>
                         ${date}
                     </div>
-                    <ul class='list-group list-group-flush'>
-                        <li class='list-group-item text-center'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
-                           <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
-                        </li>
-                        <li class='list-group-item'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
-                             Humidity: <strong>${weatherConditions.humidity}</strong>
-                        </li>
-                        <li class='list-group-item wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></li>
-                        <li class='list-group-item pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></li>
-                     </ul>
+                    <div class="card-body">
+                        <ul class='list-group list-group-flush'>
+                            <li class='list-group-item text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
+                               <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
+                            </li>
+                            <li class='list-group-item weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
+                                 Humidity: <strong>${weatherConditions.humidity}</strong>
+                            </li>
+                            <li class='list-group-item wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></li>
+                            <li class='list-group-item pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></li>
+                         </ul>
+                    </div>
                 </div>
             </div>`;
 
@@ -143,7 +145,27 @@ $(document).ready(function() {
             })
             // to get all the data from the request (lines below)
             .then(function(data) {
-                return data.features[1].place_name;
+                return data.features[2].place_name;
             });
     }
+
+    // //Updating map with info from search bar
+    // let searchInput = document.getElementById('searchInput');
+    // let submitValue = document.getElementById('submitValue');
+    //
+    // submitValue.addEventListener('click',function (){
+    //     function geocode(search, token) {
+    //         var baseUrl = 'https://api.mapbox.com';
+    //         var endPoint = '/geocoding/v5/mapbox.places/';
+    //         return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+    //             .then(function(res) {
+    //                 return res.json();
+    //                 // to get all the data from the request, comment out the following three lines...
+    //             }).then(function(data) {
+    //                 return data.features[0].center;
+    //             });
+    //     }
+    //
+    //     geocode(searchInput, mapboxToken);
+    // });
 });
