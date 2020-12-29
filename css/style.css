@@ -19,11 +19,12 @@ body {
     background: var(--nav-color);
 }
 
-/* Geocoder styling */
+/* Geocoder Search Bar styling */
 .geocoder {
-    margin: 20px 5px 0 5px;
+    /*margin: 20px 5px 0 5px;*/
     display: flex;
     justify-content: center;
+    margin: 10px 5px; /*To customize amount of margin around search bar */
 }
 
 /*Sun styling*/
@@ -39,24 +40,44 @@ body {
     white-space: nowrap;
 }
 
+/*Weather card container styling */
+.weather-card-container {
+    margin: 0;
+}
+
+/* Default weather card body styling */
+.card-body {
+    padding: 0; /*Removed padding so the card does not have as much empty space above and below text on the card*/
+}
+
 /* Default weather card styling for x-small mobile devices */
 .weather-card {
     justify-content: center;
     display: inline-block;
     width: 301px;
-    height: 315px;
+
+    height: 210px;
     background: white;
+    border: none; /* Removing border*/
 }
 
 /* Making background color of text within weather cards transparent */
 .temperature, .weather-description, .wind, .pressure {
     background: transparent;
+    margin-bottom: 0; /*To allow for less space to be taken up on the card */
+}
+
+/*Weather-description container*/
+.weather-description {
+    height: 50px;  /*setting height so description container takes up less space within card */
 }
 
 /* Mobile map styling */
 #map {
     width: 100%;
-    height: 250px;
+    height: 170px;
+    position: absolute; /*sticking map to bottom of page*/
+    bottom: 0; /*sticking map to bottom of page*/
 }
 
 /* Font size for application name and current city (both within navbar) */
@@ -68,59 +89,146 @@ body {
 }
 
 
-
-/* Small devices */
-@media screen and (min-width:375px) {
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+/* Portrait */
+@media screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
     .weather-card {
         justify-content: center;
         display: inline-block;
-        width: 350px;
+        width: 340px;
     }
-}
-
-
-
-/* Medium mobile devices */
-@media screen and (min-width:414px) {
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 400px;
-    }
-}
-
-
-
-/* Large mobile devices */
-@media screen and (min-width:574px) {
     #map {
         width: 100%;
-        height: 600px;
+        height: 235px;
+        position: absolute; /*sticking map to bottom of page*/
+        bottom: 0; /*sticking map to bottom of page*/
     }
+}
 
-    /*Styling for Find Button*/
-    .search-btn {
-        display: inline-block;
-        width: 100px;
-        margin-top: 0;
-    }
 
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
     .weather-card {
         justify-content: center;
         display: inline-block;
-        width: 300px;
+        width: 360px;
     }
-}
-
-
-
-/*Tablet devices*/
-@media screen and (min-width:1024px) {
     #map {
         width: 100%;
-        height: 800px;
+        height: 265px;
+        position: absolute; /*sticking map to bottom of page*/
+        bottom: 0; /*sticking map to bottom of page*/
     }
 }
+
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 395px;
+    }
+
+    #map {
+        width: 100%;
+        height: 335px;
+        position: absolute; /*sticking map to bottom of page*/
+        bottom: 0; /*sticking map to bottom of page*/
+    }
+}
+
+
+/* ----------- iPhone X ----------- */
+@media only screen
+and (min-device-width : 375px) and (max-device-width : 375px)
+/*and (min-device-height : 812px) and (min-device-height : 812px)*/
+and (-webkit-device-pixel-ratio : 3) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 360px;
+    }
+
+    #map {
+        width: 100%;
+        height: 410px;
+        position: absolute; /*sticking map to bottom of page*/
+        bottom: 0; /*sticking map to bottom of page*/
+    }
+}
+
+
+
+
+
+/*!* Small devices *!*/
+/*@media screen and (min-width:375px) {*/
+/*    .weather-card {*/
+/*        justify-content: center;*/
+/*        display: inline-block;*/
+/*        width: 350px;*/
+/*    }*/
+/*}*/
+
+
+
+/*!* Medium mobile devices *!*/
+/*@media screen and (min-width:414px) {*/
+/*    .weather-card {*/
+/*        justify-content: center;*/
+/*        display: inline-block;*/
+/*        width: 400px;*/
+/*    }*/
+/*}*/
+
+
+
+/*!* Large mobile devices *!*/
+/*@media screen and (min-width:574px) {*/
+/*    #map {*/
+/*        width: 100%;*/
+/*        height: 600px;*/
+/*    }*/
+
+/*    !*Styling for Find Button*!*/
+/*    .search-btn {*/
+/*        display: inline-block;*/
+/*        width: 100px;*/
+/*        margin-top: 0;*/
+/*    }*/
+
+/*    .weather-card {*/
+/*        justify-content: center;*/
+/*        display: inline-block;*/
+/*        width: 300px;*/
+/*    }*/
+/*}*/
+
+
+
+/*!*Tablet devices*!*/
+/*@media screen and (min-width:1024px) {*/
+/*    #map {*/
+/*        width: 100%;*/
+/*        height: 800px;*/
+/*    }*/
+/*}*/
 
 
 
@@ -133,9 +241,21 @@ body {
         align-items: center;
     }
 
+    .weather-date {
+        padding-top: 10px;
+    }
+
+    .card-body {
+        justify-content: center;
+        align-items: center;
+    }
+    .weather-card {
+        height: 230px;
+    }
+
     #map {
         width: 100%;
-        height: 780px;
+        height: 870px;
     }
 
     .app-name {
