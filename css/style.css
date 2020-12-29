@@ -89,6 +89,32 @@ body {
 }
 
 
+
+/* Mobile Landscape View */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 823px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+    /*Adjust card size*/
+    .weather-card {
+        width: 200px;
+        height: 110px;
+    }
+
+    /*Hide Weather Description*/
+    .weather-description, .wind, .pressure {
+        display: none;
+    }
+
+    /*Hide Map*/
+    #map {
+        display: none;
+    }
+}
+
+
+
 /* ----------- Galaxy S4, S5 and Note 3 ----------- */
 /* Portrait */
 @media screen
@@ -99,7 +125,7 @@ and (orientation: portrait) {
     .weather-card {
         justify-content: center;
         display: inline-block;
-        width: 340px;
+        /*width: 340px;*/
     }
     #map {
         width: 100%;
@@ -132,6 +158,7 @@ and (orientation: portrait) {
 }
 
 
+
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
 /* Portrait */
 @media only screen
@@ -152,6 +179,7 @@ and (orientation: portrait) {
         bottom: 0; /*sticking map to bottom of page*/
     }
 }
+
 
 
 /* ----------- iPhone X ----------- */
@@ -175,60 +203,63 @@ and (-webkit-device-pixel-ratio : 3) {
 
 
 
+/* iPad */
+/*Portrait*/
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 280px;
+    }
 
+    #map {
+            width: 100%;
+            height: 690px;
+        }
+}
 
-/*!* Small devices *!*/
-/*@media screen and (min-width:375px) {*/
-/*    .weather-card {*/
-/*        justify-content: center;*/
-/*        display: inline-block;*/
-/*        width: 350px;*/
-/*    }*/
-/*}*/
-
-
-
-/*!* Medium mobile devices *!*/
-/*@media screen and (min-width:414px) {*/
-/*    .weather-card {*/
-/*        justify-content: center;*/
-/*        display: inline-block;*/
-/*        width: 400px;*/
-/*    }*/
-/*}*/
-
-
-
-/*!* Large mobile devices *!*/
-/*@media screen and (min-width:574px) {*/
-/*    #map {*/
-/*        width: 100%;*/
-/*        height: 600px;*/
-/*    }*/
-
-/*    !*Styling for Find Button*!*/
-/*    .search-btn {*/
-/*        display: inline-block;*/
-/*        width: 100px;*/
-/*        margin-top: 0;*/
-/*    }*/
-
-/*    .weather-card {*/
-/*        justify-content: center;*/
-/*        display: inline-block;*/
-/*        width: 300px;*/
-/*    }*/
-/*}*/
+/* Landscape */
+/* iPad Landscape */
+@media screen and (min-device-width: 481px) and (orientation:landscape) {
+    #map {
+        width: 100%;
+        height: 440px;
+    }
+}
 
 
 
-/*!*Tablet devices*!*/
-/*@media screen and (min-width:1024px) {*/
-/*    #map {*/
-/*        width: 100%;*/
-/*        height: 800px;*/
-/*    }*/
-/*}*/
+/* ----------- iPad Pro ----------- */
+/* Portrait */
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+    .weather-card {
+        justify-content: center;
+        display: inline-block;
+        width: 280px;
+    }
+
+    #map {
+        width: 100%;
+        height: 1030px;
+    }
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 1366px)
+and (max-device-width: 1366px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+    #map {
+        width: 100%;
+        height: 690px;
+    }
+}
 
 
 
