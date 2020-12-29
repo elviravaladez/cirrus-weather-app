@@ -19,3 +19,8 @@ The Weather Map project was developed to provide users with an easy-to-use appli
 
 ## Built With
 HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWeatherMap API
+
+
+<p align="center">
+    <img src="media/clouds.gif" alt="Clouds Gif">
+</p>
