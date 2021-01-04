@@ -1,6 +1,6 @@
 # Weather Map 
 
-The Weather Map project was developed to provide users with an easy-to-use application for getting the most up-to-date weather forecast.
+The Weather Map Application was developed to provide users with an easy-to-use resource for getting a glimpse at the weekly weather forecast for a designated location.
 
 ## Features
 * Current Location (default set to: San Antonio, Texas 78205, United States)
