@@ -1,6 +1,5 @@
 $(document).ready(function() {
     "use strict";
-
     //Displaying the Weather Forecast Initially Displayed on the Webpage
     updateWeather(-98.4916, 29.4252);
 
