@@ -79,7 +79,6 @@ body {
 }
 
 
-
 /* Medium mobile devices */
 @media screen and (min-width:414px) {
     .weather-card {
@@ -88,7 +87,6 @@ body {
         width: 400px;
     }
 }
-
 
 
 /* Large mobile devices */
@@ -113,7 +111,6 @@ body {
 }
 
 
-
 /*Tablet devices*/
 @media screen and (min-width:1024px) {
     #map {
@@ -121,7 +118,6 @@ body {
         height: 800px;
     }
 }
-
 
 
 /* Extra large devices (large desktops and up) */
