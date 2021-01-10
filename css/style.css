@@ -369,10 +369,49 @@ and (min-device-height: 1366px) {
         bottom: 1%;
         position: absolute;
         width: 100%;
-        /*z-index: -1;*/
+        z-index: -1;
     }
+}
 
-    .map {
-        display: inline-block;
+
+@media screen and (min-height: 700px) {
+    .container-map {
+        height: 45%;
+        bottom: 1%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+@media screen and (min-height: 800px) {
+    .container-map {
+        height: 50%;
+        bottom: 1%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+
+@media screen and (min-height: 1000px) {
+    .container-map {
+        height: 62%;
+        bottom: 1%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+
+@media screen and (min-height: 1201px) {
+    .container-map {
+        height: 67%;
+        bottom: 1%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
     }
 }
