@@ -1,10 +1,13 @@
 :root{
     --body-color: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
     --nav-color: #141c2a;
-    --sun-font-size: 25px;
-    --sun-icon-color: #fc5400;
     --app-name-mobile-font-size: 1.5em;
     --city-mobile-font-size: .95em;
+    --weather-card-mobile-font-size: .75em;
+    --date-mobile-font-size: 1.25em;
+    --weather-card-large-font-size: .9em;
+    --date-large-font-size: 1em;
+    --weather-card-height: 185px;
 }
 
 /* Setting body background color */
@@ -34,12 +37,6 @@ body {
     justify-content: center;
 }
 
-/*Sun styling*/
-.sun {
-    font-size: var(--sun-font-size);
-    color: var(--sun-icon-color);
-}
-
 /* Scrollable Weather Cards */
 .scrolling-wrapper {
     overflow-x: scroll;
@@ -52,8 +49,15 @@ body {
     justify-content: center;
     display: inline-block;
     width: 305px;
-    height: 225px;
+    height: var(--weather-card-height);
     background: white;
+    font-size: var(--weather-card-mobile-font-size);
+}
+
+.date {
+    font-size: var(--date-mobile-font-size);
+    font-weight: bold;
+
 }
 
 /* Making background color of text within weather cards transparent */
@@ -118,7 +122,7 @@ and (min-device-height: 653px) {
         justify-content: center;
         display: inline-block;
         width: 345px;
-        height: 225px;
+        height: var(--weather-card-height);
         background: white;
     }
 }
@@ -137,7 +141,7 @@ and (min-device-height: 653px) {
         justify-content: center;
         display: inline-block;
         width: 360px;
-        height: 225px;
+        height: var(--weather-card-height);
         background: white;
     }
 
@@ -157,7 +161,7 @@ and (min-device-height: 653px) {
         justify-content: center;
         display: inline-block;
         width: 398px;
-        height: 225px;
+        height: var(--weather-card-height);
         background: white;
     }
 }
@@ -179,7 +183,7 @@ and (orientation: portrait) {
         justify-content: center;
         display: inline-block;
         width: 396px;
-        height: 225px;
+        height: var(--weather-card-height);
         background: white;
     }
 }
@@ -243,6 +247,13 @@ and (orientation: portrait) {
         width: 305px;
         height: 225px;
         background: white;
+        font-size: var(--weather-card-large-font-size);
+    }
+
+    .date {
+        font-size: var(--date-large-font-size);
+        font-weight: bold;
+
     }
 }
 
@@ -334,6 +345,7 @@ and (min-device-height: 1366px) {
         display: inline-block;
         width: 305px;
         height: 225px;
+        margin-top: 1em;
         background: white;
     }
 }
