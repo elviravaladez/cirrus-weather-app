@@ -13,12 +13,14 @@
     <link rel="manifest" href="media/site.webmanifest">
     <!--Mapbox-->
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--Mapbox Geocoder Stylesheet-->
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+          type="text/css"/>
     <!--Font Awesome Script-->
     <script src="https://kit.fontawesome.com/5eae995560.js" crossorigin="anonymous"></script>
     <!--Custom stylesheet-->
@@ -26,29 +28,48 @@
 </head>
 <body>
 <header>
-    <!--Navbar-->
-    <nav class="navbar navbar-dark">
-        <span class="navbar-brand mb-0 h1 app-name"><i class="fas fa-cloud"></i> Cirrus Weather App</span>
-        <span class="navbar-text text-white font-weight-bold current-city">Current Location: <span id="city">San Antonio, Texas 78205, United States</span></span>
-    </nav>
-
+    <div class="container-nav">
+        <!--Navbar-->
+        <nav class="navbar navbar-dark">
+            <span class="navbar-brand mb-0 h1 app-name"><i class="fas fa-cloud"></i> Cirrus Weather App</span>
+            <span class="navbar-text text-white font-weight-bold current-city">Current Location: <span id="city">San Antonio, Texas 78205, United States</span></span>
+        </nav>
+    </div>
 </header>
 
-<!--Main Content-->
-<main>
-    <!-- Geocoder Search Bar -->
-    <div id="geocoder" class="geocoder"></div>
-    <!--Weather Card Container-->
-    <div class="weather-card-container scrolling-wrapper mt-3 mb-3">
-        <!--Weather Cards Will Display Here-->
-    </div>
+<div class="container-main">
+    <!--Main Content-->
+    <main role="main">
+        <!-- Geocoder Search Bar -->
+        <div id="geocoder" class="geocoder"></div>
 
-    <!--Map-->
-    <div id="map"></div>
-</main>
+<!--        &lt;!&ndash; Weather Button &ndash;&gt;-->
+<!--        <div class="container-weather-button m-1">-->
+<!--            <p>-->
+<!--                <button class="btn btn-warning" type="button" data-toggle="collapse" data-target=".multi-collapse"-->
+<!--                        aria-expanded="false" aria-controls="weather-card-container">Toggle Weather-->
+<!--                </button>-->
+<!--            </p>-->
+<!--        </div>-->
 
+        <!--Weather Card Container-->
+<!--        <div class="weather-card-container scrolling-wrapper mt-3 collapse multi-collapse">-->
 
+<!--        <div class="weather-card-container scrolling-wrapper mt-3">--> <!--ORIGINAL-->
+        <div class="weather-card-container scrolling-wrapper">
+            <!--Weather Cards Will Display Here-->
+        </div>
 
+        <!--Map-->
+        <div class="container-map">
+            <div id="map"></div>
+        </div>
+    </main>
+</div>
+
+<footer>
+
+</footer>
 
 
 <!--jQuery-->
