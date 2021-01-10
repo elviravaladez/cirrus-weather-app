@@ -185,6 +185,29 @@ and (orientation: portrait) {
 }
 
 
+/* iPads */
+@media only screen and (min-device-width : 768px) {
+    .container-map {
+        height: 41.75em;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+    }
+}
+/*!* iPads (portrait) ----------- *!*/
+/*@media only screen and (min-device-width : 768px)*/
+/*and (max-device-width : 1024px) and (orientation : portrait) {*/
+/*    .container-map {*/
+/*        !*height: 42em;*!*/
+/*        height: 100vh;*/
+/*        bottom: 0;*/
+/*        position: fixed;*/
+/*        width: 100%;*/
+/*        z-index: -1;*/
+/*    }*/
+/*}*/
+
 /*!* Large mobile devices *!*/
 /*@media screen and (min-width:574px) {*/
 /*    #map {*/
