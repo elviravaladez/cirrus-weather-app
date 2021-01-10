@@ -81,10 +81,10 @@ body {
     font-size: var(--city-mobile-font-size);
 }
 
-/* Small devices */
+/* Samsung Galaxy */
 @media screen and (min-width:360px) {
     .container-map {
-        height: 13.25em;
+        height: 13.15em;
         bottom: 0;
         position: fixed;
         width: 100%;
@@ -93,7 +93,7 @@ body {
 
 }
 
-/* Small devices */
+/* iPhone 6, 7, 8 */
 @media screen and (min-width:375px) {
     /*.weather-card {*/
     /*    justify-content: center;*/
@@ -111,7 +111,7 @@ body {
 
 }
 
-/* Medium mobile devices */
+/* Pixel 2 */
 @media screen and (min-width:411px) {
     .container-map {
         height: 18.9em;
@@ -122,7 +122,21 @@ body {
     }
 }
 
-/* Medium mobile devices */
+/* Pixel 2 XL */
+@media only screen
+and (min-device-width: 411px)
+and (min-device-height: 823px)
+and (orientation: portrait) {
+    .container-map {
+        height: 24.5em;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+/* iPhone 6+, 7+, 8+ */
 @media screen and (min-width:414px) {
     /*.weather-card {*/
     /*    justify-content: center;*/
@@ -132,6 +146,37 @@ body {
 
     .container-map {
         height: 19em;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+
+/* iPhone X and Xs Max */
+@media only screen
+and (min-device-width: 375px)
+and (min-device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    .container-map {
+        height: 23.75em;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+/* iPhone XR */
+@media only screen
+and (min-device-width: 414px)
+and (min-device-height: 896px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .container-map {
+        height: 29.15em;
         bottom: 0;
         position: fixed;
         width: 100%;
