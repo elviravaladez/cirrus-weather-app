@@ -31,31 +31,33 @@ $(document).ready(function() {
     function makeCard(weatherConditions) {
         let weatherCard = "";
 
-        //Converting the Time Stamp Date to a Human Readable Date
+        // //Converting the Time Stamp Date to a Human Readable Date
         let unixTimeStamp = weatherConditions.dt;
         let milliseconds = unixTimeStamp * 1000;
         let dateObject = new Date(milliseconds);
-        let humanDateFormat = dateObject.toLocaleString();
-        let date = humanDateFormat.split(",");
-        date = date[0];
+        let humanDateFormat = {
+            weekday: "long", month: "long",
+            day: "numeric", year: "numeric"
+        }
+        let date = dateObject.toLocaleString("en-US", humanDateFormat);
 
         //Creating the Forecast Card
         weatherCard +=
             `<div class='d-inline-block card-div'>
-                    <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>
-                        <div class='card-body'>
-                            <h5 class='card-title text-center'>${date}</h5>
-                            <p class='text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
-                                   <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
-                            </p>
-                            <p class=' text-center weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br><br>
-                                     Humidity: <strong>${weatherConditions.humidity}</strong>
-                            </p>
-                            <p class='text-center wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></p>
-                            <p class='text-center pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></p>
-                        </div>
+                <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>
+                    <div class='card-body'>
+                        <h5 class='card-title text-center'>${date}</h5>
+                        <p class='text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
+                               <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
+                        </p>
+                        <p class=' text-center weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br>
+                                 Humidity: <strong>${weatherConditions.humidity}</strong>
+                        </p>
+                        <p class='text-center wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></p>
+                        <p class='text-center pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></p>
                     </div>
-                </div>`;
+                </div>
+            </div>`;
 
         //Adding the Forecast Card to the div with a class of weather-card-container
         $(".weather-card-container").append(weatherCard);
