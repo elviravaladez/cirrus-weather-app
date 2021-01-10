@@ -2,6 +2,7 @@
     --body-color: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
     --nav-color: #141c2a;
     --weather-card-height: 185px;
+    --current-city-font-color: white;
     /*Mobile*/
     --app-name-mobile-font-size: 1em;
     --city-mobile-font-size: .75em;
@@ -24,6 +25,18 @@ body {
 /* Navbar color */
 .navbar {
     background: var(--nav-color);
+}
+
+/* Font size for application name and current city (both within navbar) */
+.app-name {
+    font-size: var(--app-name-mobile-font-size);
+}
+.current-city {
+    font-size: var(--city-mobile-font-size);
+}
+
+#city {
+    color: var(--current-city-font-color);
 }
 
 .main-container {
@@ -54,7 +67,9 @@ body {
     display: inline-block;
     width: 305px;
     height: var(--weather-card-height);
-    background: white;
+    /*background: white;*/
+    background: transparent;
+    border: none;
     font-size: var(--weather-card-mobile-font-size);
 }
 
@@ -72,7 +87,7 @@ body {
 
 /* Container for map */
 .container-map {
-    height: 9.75em;
+    height: 7em;
     bottom: 0.05em;
     position: fixed;
     width: 100%;
@@ -88,19 +103,11 @@ body {
     border-radius: 5px;
 }
 
-/* Font size for application name and current city (both within navbar) */
-.app-name {
-    font-size: var(--app-name-mobile-font-size);
-}
-.current-city {
-    font-size: var(--city-mobile-font-size);
-}
-
 /* Galaxy Fold */
 @media screen and (min-device-width:280px)
 and (min-device-height: 653px) {
     .container-map {
-        height: 13.75em;
+        height: 10em;
         bottom: 0.1em;
         position: fixed;
         width: 100%;
@@ -113,7 +120,7 @@ and (min-device-height: 653px) {
 /* Samsung Galaxy */
 @media screen and (min-device-width:360px) {
     .container-map {
-        height: 14.25em;
+        height: 10em;
         bottom: .2em;
         position: fixed;
         width: 100%;
@@ -128,13 +135,15 @@ and (min-device-height: 653px) {
         width: 345px;
         height: var(--weather-card-height);
         background: white;
+        /*background: transparent;*/
+        /*border: none;*/
     }
 }
 
 /* iPhone 6, 7, 8 */
 @media screen and (min-device-width:375px) {
     .container-map {
-        height: 16em;
+        height: 13em;
         bottom: .5%;
         position: fixed;
         width: 100%;
@@ -146,7 +155,9 @@ and (min-device-height: 653px) {
         display: inline-block;
         width: 360px;
         height: var(--weather-card-height);
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 
 }
@@ -154,7 +165,7 @@ and (min-device-height: 653px) {
 /* Pixel 2 */
 @media screen and (min-device-width:411px) {
     .container-map {
-        height: 19.75em;
+        height: 16em;
         bottom: .9%;
         position: fixed;
         width: 100%;
@@ -166,7 +177,9 @@ and (min-device-height: 653px) {
         display: inline-block;
         width: 398px;
         height: var(--weather-card-height);
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
@@ -176,7 +189,7 @@ and (min-device-width: 411px)
 and (min-device-height: 823px)
 and (orientation: portrait) {
     .container-map {
-        height: 25.5em;
+        height: 22em;
         bottom: .9%;
         position: fixed;
         width: 100%;
@@ -188,14 +201,16 @@ and (orientation: portrait) {
         display: inline-block;
         width: 396px;
         height: var(--weather-card-height);
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
 /* iPhone 6+, 7+, 8+ */
 @media screen and (min-device-width:414px) {
     .container-map {
-        height: 20em;
+        height: 17em;
         bottom: .9%;
         position: fixed;
         width: 100%;
@@ -211,7 +226,7 @@ and (min-device-height: 812px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
     .container-map {
-        height: 25em;
+        height: 22em;
         bottom: .9%;
         position: fixed;
         width: 100%;
@@ -226,7 +241,7 @@ and (min-device-height: 896px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
     .container-map {
-        height: 30em;
+        height: 27em;
         bottom: .9%;
         position: fixed;
         width: 100%;
@@ -238,7 +253,7 @@ and (orientation: portrait) {
 /* iPads/Tablets */
 @media only screen and (min-device-width : 768px) {
     .container-map {
-        height: 41.75em;
+        height: 38em;
         bottom: 0;
         position: fixed;
         width: 100%;
@@ -250,7 +265,10 @@ and (orientation: portrait) {
         display: inline-block;
         width: 305px;
         height: 225px;
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
+
         font-size: var(--weather-card-large-font-size);
     }
 
@@ -286,7 +304,9 @@ and (min-device-height: 1366px) {
         display: inline-block;
         width: 305px;
         height: 225px;
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
@@ -305,7 +325,9 @@ and (min-device-height: 1366px) {
         display: inline-block;
         width: 305px;
         height: 225px;
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
@@ -330,7 +352,9 @@ and (min-device-height: 1366px) {
         display: inline-block;
         width: 305px;
         height: 225px;
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
@@ -358,7 +382,9 @@ and (min-device-height: 1366px) {
         width: 305px;
         height: 225px;
         margin-top: 1em;
-        background: white;
+        /*background: white;*/
+        background: transparent;
+        border: none;
     }
 }
 
