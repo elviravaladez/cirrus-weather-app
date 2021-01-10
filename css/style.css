@@ -1,13 +1,17 @@
 :root{
     --body-color: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
     --nav-color: #141c2a;
-    --app-name-mobile-font-size: 1.5em;
-    --city-mobile-font-size: .95em;
+    --weather-card-height: 185px;
+    /*Mobile*/
+    --app-name-mobile-font-size: 1em;
+    --city-mobile-font-size: .75em;
     --weather-card-mobile-font-size: .75em;
     --date-mobile-font-size: 1.25em;
+    /*Larger Devices*/
+    --app-name-large-font-size: 1.2em;
+    --city-large-font-size: 1em;
     --weather-card-large-font-size: .9em;
     --date-large-font-size: 1em;
-    --weather-card-height: 185px;
 }
 
 /* Setting body background color */
@@ -254,6 +258,14 @@ and (orientation: portrait) {
         font-size: var(--date-large-font-size);
         font-weight: bold;
 
+    }
+
+    /* Font size for application name and current city (both within navbar) */
+    .app-name {
+        font-size: var(--app-name-large-font-size);
+    }
+    .current-city {
+        font-size: var(--city-large-font-size);
     }
 }
 
