@@ -45,7 +45,7 @@ $(document).ready(function() {
         weatherCard +=
             `<div class='d-inline-block card-div'>
                 <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>
-                    <div class='card-body'>
+                    <div class='card-body pt-2 pb-0'>
                         <h5 class='card-title text-center'>${date}</h5>
                         <p class='text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
                                <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
