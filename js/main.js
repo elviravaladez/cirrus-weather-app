@@ -39,30 +39,8 @@ $(document).ready(function () {
             for (let i = 1; i < 6; i++) {
                 makeCard(daily[i]);
             }
-
-            // //Logic to Change Background Based on Time of Day
-            // const changeBackground = $("body");
-            // const imageName = current.weather[0].icon;
-            // const weatherCardStyling = $(".weather-card");
-            // const currentStatsBorders = $(".current-stats");
-            //
-            // if (isDayTime(imageName)) {
-            //     changeBackground.css('background', 'linear-gradient(89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% )');
-            //     changeBackground.css('color', 'black');
-            //     weatherCardStyling.css('background', 'rgba(255,255,255, .55)');
-            // } else {
-            //     changeBackground.css('background', '#100C2A');
-            //     changeBackground.css('color', 'white');
-            //     weatherCardStyling.css('background', 'rgba(0,0,0,0.9)');
-            //     $(".current-stats").css('border', 'none');
-            // }
         });
     }
-
-    // //Function to Check if It's Day or Night
-    // function isDayTime(icon) {
-    //     return !!icon.includes('d');
-    // }
 
     //Function to Get Date
     function getDate(weatherConditions) {
