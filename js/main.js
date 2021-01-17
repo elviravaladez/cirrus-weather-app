@@ -3,7 +3,6 @@ $(document).ready(function () {
     //Displaying the Weather Forecast Initially Displayed on the Webpage
     updateWeather(-98.4916, 29.4252);
 
-
     //Function to Update the Weather on the Webpage
     function updateWeather(longitude, latitude) {
         //Ajax Request for 5 Day Forecast
@@ -27,11 +26,11 @@ $(document).ready(function () {
             $("#current-high").html(`${Math.round(daily[0].temp.max)}º`);
             $("#current-low").html(`${Math.round(daily[0].temp.min)}º`);
             $("#current-wind").html(`${Math.round(current.wind_speed)} mph`);
-            $("#current-uvi").html(`${Math.round(current.uvi)}`);
+            $("#current-sunrise").html(getTime(current.sunrise));
             $(".current-temperature-value").html(`${Math.round(current.temp)}º`);
             $(".current-temperature-description").html(current.weather[0].description);
             $("#current-humidity").html(`${current.humidity}%`);
-            $("#current-rain").html(`${daily[0].pop}%`);
+            $("#current-sunset").html(`${getTime(current.sunset)}`);
             $(".current-temperature-icon-container").html(`<img src='http://openweathermap.org/img/w/${current.weather[0].icon}.png' alt='${current.weather[0].description} image'>`);
 
             //Clearing Weather Card Container Each Time the Location is Changed
@@ -40,12 +39,34 @@ $(document).ready(function () {
             for (let i = 1; i < 6; i++) {
                 makeCard(daily[i]);
             }
+
+            // //Logic to Change Background Based on Time of Day
+            // const changeBackground = $("body");
+            // const imageName = current.weather[0].icon;
+            // const weatherCardStyling = $(".weather-card");
+            // const currentStatsBorders = $(".current-stats");
+            //
+            // if (isDayTime(imageName)) {
+            //     changeBackground.css('background', 'linear-gradient(89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% )');
+            //     changeBackground.css('color', 'black');
+            //     weatherCardStyling.css('background', 'rgba(255,255,255, .55)');
+            // } else {
+            //     changeBackground.css('background', '#100C2A');
+            //     changeBackground.css('color', 'white');
+            //     weatherCardStyling.css('background', 'rgba(0,0,0,0.9)');
+            //     $(".current-stats").css('border', 'none');
+            // }
         });
     }
 
+    // //Function to Check if It's Day or Night
+    // function isDayTime(icon) {
+    //     return !!icon.includes('d');
+    // }
+
     //Function to Get Date
     function getDate(weatherConditions) {
-        // //Converting the Time Stamp Date to a Human Readable Date
+        //Converting the Time Stamp Date to a Human Readable Date
         let unixTimeStamp = weatherConditions.dt;
         let milliseconds = unixTimeStamp * 1000;
         let dateObject = new Date(milliseconds);
@@ -55,31 +76,49 @@ $(document).ready(function () {
         return dateObject.toLocaleString("en-US", humanDateFormat);
     }
 
+    //Function to Get Day of The Week ONLY
+    function getDayOfTheWeek(weatherConditions) {
+        //Converting the Time Stamp Date to a Human Readable Day of The Week
+        let unixTimeStamp = weatherConditions.dt;
+        let milliseconds = unixTimeStamp * 1000;
+        let dateObject = new Date(milliseconds);
+        let humanDateFormat = {
+            weekday: "long"
+        }
+        return dateObject.toLocaleString("en-US", humanDateFormat);
+    }
+
+    //Function to Get Time
+    function getTime(weatherConditions) {
+        let unix_timestamp = weatherConditions;
+        let date = new Date(unix_timestamp * 1000);
+
+        return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    }
 
     //Function to Make a Forecast Card
     function makeCard(weatherConditions) {
         let weatherCard = "";
-        let date = getDate(weatherConditions);
+        let date = getDayOfTheWeek(weatherConditions);
 
         //Creating the Forecast Card
         weatherCard +=
             `<div class='d-inline-block card-div'>
-<!--                <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>-->
-                <div class='card weather-card ml-2 mr-2 mb-3 mb-lg-5 shadow-sm rounded'>
-                    <div class='card-body mt-0 mb-1 p-0'>
-                        <h5 class='card-title text-center date'>${date}</h5>
-                        <p class='text-center temperature'><strong>${Math.round(weatherConditions.temp.max)}º / ${Math.round(weatherConditions.temp.min)}º</strong><br>
+                <div class='card weather-card ml-2 mr-2 mb-3 mb-lg-5 shadow-sm rounded text-center'>
+                    <div class='card-body mt-0 mb-1 p-0 text-center'>
+                        <h5 class='card-title text-center date pt-2'>${date}</h5>
+                        <p class='temperature'><strong>${Math.round(weatherConditions.temp.max)}º | ${Math.round(weatherConditions.temp.min)}º</strong><br>
                                <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
                         </p>
-                        <p class='text-center weather-description'><strong>${weatherConditions.weather[0].main} </strong><br>
-                                 Humidity: <strong>${weatherConditions.humidity}%</strong><br>
-                                 Rain: <strong>${Math.round(weatherConditions.pop)}%</strong><br>
-                                 Wind: <strong>${Math.round(weatherConditions.wind_speed)} mph</strong><br>
-                                 UV Index: <strong> ${Math.round(weatherConditions.uvi)}</strong>
+                        <p class='weather-description pb-2'><strong>${weatherConditions.weather[0].description}</strong></p>
+                        <p>     
+                            Humidity: <strong>${weatherConditions.humidity}%</strong><br>
+                            Wind: <strong>${Math.round(weatherConditions.wind_speed)} mph</strong><br>
+                            Sunrise: <strong>${getTime(weatherConditions.sunrise)}</strong><br>
+                            Sunset: <strong> ${getTime(weatherConditions.sunset)}</strong>
                         </p>
                     </div>
                 </div>
-                
             </div>`;
 
         //Adding the Forecast Card to the div with a class of weather-card-container
@@ -102,7 +141,6 @@ $(document).ready(function () {
     //Creating the Map
     let map = new mapboxgl.Map(mapOptions);
 
-
     //Customizing the Marker
     let markerOptions = {
         color: "#ff0000",
@@ -113,7 +151,6 @@ $(document).ready(function () {
     let marker = new mapboxgl.Marker(markerOptions)
         .setLngLat([-98.4916, 29.4252])
         .addTo(map);
-
 
     //Function to Get Coordinates of the Draggable Marker and Use Those Coordinates Within the updateWeather Function
     function onDragEnd() {
@@ -126,7 +163,6 @@ $(document).ready(function () {
 
     marker.on('dragend', onDragEnd);
 
-
     // Adding a Mapbox text input to search by location and have the forecast update when a new location is searched
     let geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
@@ -134,7 +170,6 @@ $(document).ready(function () {
     });
 
     document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
 
     //Updating the marker's position to the new search result
     geocoder.on("result", function (result) {
@@ -152,7 +187,6 @@ $(document).ready(function () {
 
         updateWeather(long, lat);
     });
-
 
     //Updating the location in the Navbar
     function reverseGeocode(coordinates, token) {
