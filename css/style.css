@@ -42,9 +42,9 @@ body {
     color: white;
 }
 
-.bg-dark {
-    background: rgba(0,0,0,0.9) !important;
-}
+/*.bg-dark {*/
+/*    background: rgba(0,0,0,0.9) !important;*/
+/*}*/
 
 
 /*current city and date */
@@ -115,8 +115,9 @@ body {
     display: inline-block;
     width: var(--default-weather-card-width);
     height: var(--weather-card-height);
-    background:rgba(255,255,255, .55);
-    border: none;
+    background:transparent;
+    /*background:rgba(255,255,255, .55);*/
+    /*border: none;*/
     font-size: var(--weather-card-mobile-font-size);
 }
 
