@@ -28,8 +28,8 @@ $(document).ready(function () {
             $("#current-low").html(`${Math.round(daily[0].temp.min)}º`);
             $("#current-wind").html(`${Math.round(current.wind_speed)} mph`);
             $("#current-uvi").html(`${Math.round(current.uvi)}`);
-            $(".current-temperature__value").html(`${Math.round(current.temp)}º`);
-            $(".current-temperature__summary").html(current.weather[0].description);
+            $(".current-temperature-value").html(`${Math.round(current.temp)}º`);
+            $(".current-temperature-description").html(current.weather[0].description);
             $("#current-humidity").html(`${current.humidity}%`);
             $("#current-rain").html(`${daily[0].pop}%`);
             $(".current-temperature-icon-container").html(`<img src='http://openweathermap.org/img/w/${current.weather[0].icon}.png' alt='${current.weather[0].description} image'>`);
@@ -65,17 +65,17 @@ $(document).ready(function () {
         weatherCard +=
             `<div class='d-inline-block card-div'>
 <!--                <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>-->
-                <div class='card weather-card ml-2 mr-2 mb-1 shadow-sm rounded'>
+                <div class='card weather-card ml-2 mr-2 mb-3 mb-lg-5 shadow-sm rounded'>
                     <div class='card-body mt-0 mb-1 p-0'>
                         <h5 class='card-title text-center date'>${date}</h5>
                         <p class='text-center temperature'><strong>${Math.round(weatherConditions.temp.max)}º / ${Math.round(weatherConditions.temp.min)}º</strong><br>
                                <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
                         </p>
-                        <p class='text-center weather-description'><strong>${weatherConditions.weather[0].description} </strong><br>
+                        <p class='text-center weather-description'><strong>${weatherConditions.weather[0].main} </strong><br>
                                  Humidity: <strong>${weatherConditions.humidity}%</strong><br>
                                  Rain: <strong>${Math.round(weatherConditions.pop)}%</strong><br>
                                  Wind: <strong>${Math.round(weatherConditions.wind_speed)} mph</strong><br>
-                                 UV Index: <strong> ${weatherConditions.uvi}</strong>
+                                 UV Index: <strong> ${Math.round(weatherConditions.uvi)}</strong>
                         </p>
                     </div>
                 </div>
