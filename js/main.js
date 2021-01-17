@@ -12,51 +12,74 @@ $(document).ready(function() {
             lat: latitude,
             lon: longitude,
             units: "imperial",
-            exclude: "minutely,hourly,alerts,current"
+            exclude: "minutely,hourly,alerts"
         });
 
         //Making 5 Day Forecast Cards
         getFiveDayForecast.done(function(weatherConditions) {
             let daily = weatherConditions.daily;
+            let current = weatherConditions.current;
+
+            //Today's Date
+            $("#current-date").html(getDate(daily[0]));
+
+            //Today's Weather
+            $("#current-high").html(`${Math.round(daily[0].temp.max)}º`);
+            $("#current-low").html(`${Math.round(daily[0].temp.min)}º`);
+            $("#current-wind").html(`${Math.round(current.wind_speed)} mph`);
+            $("#current-uvi").html(`${Math.round(current.uvi)}`);
+            $(".current-temperature__value").html(`${Math.round(current.temp)}º`);
+            $(".current-temperature__summary").html(current.weather[0].description);
+            $("#current-humidity").html(`${current.humidity}%`);
+            $("#current-rain").html(`${daily[0].pop}%`);
+            $(".current-temperature-icon-container").html(`<img src='http://openweathermap.org/img/w/${current.weather[0].icon}.png' alt='${current.weather[0].description} image'>`);
+
+            //Clearing Weather Card Container Each Time the Location is Changed
             $(".weather-card-container").html("");
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 1; i < 6; i++) {
                 makeCard(daily[i]);
             }
         });
+    }
+
+    //Function to Get Date
+    function getDate(weatherConditions) {
+        // //Converting the Time Stamp Date to a Human Readable Date
+        let unixTimeStamp = weatherConditions.dt;
+        let milliseconds = unixTimeStamp * 1000;
+        let dateObject = new Date(milliseconds);
+        let humanDateFormat = {
+            weekday: "long", month: "long", day: "numeric"
+        }
+        return dateObject.toLocaleString("en-US", humanDateFormat);
     }
 
 
     //Function to Make a Forecast Card
     function makeCard(weatherConditions) {
         let weatherCard = "";
-
-        // //Converting the Time Stamp Date to a Human Readable Date
-        let unixTimeStamp = weatherConditions.dt;
-        let milliseconds = unixTimeStamp * 1000;
-        let dateObject = new Date(milliseconds);
-        let humanDateFormat = {
-            weekday: "long", month: "long",
-            day: "numeric", year: "numeric"
-        }
-        let date = dateObject.toLocaleString("en-US", humanDateFormat);
+        let date = getDate(weatherConditions);
 
         //Creating the Forecast Card
         weatherCard +=
             `<div class='d-inline-block card-div'>
-                <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>
+<!--                <div class='card weather-card ml-2 mr-2 mt-1 shadow-sm mb-1 rounded'>-->
+                <div class='card weather-card ml-2 mr-2 mb-1 shadow-sm rounded'>
                     <div class='card-body mt-0 mb-1 p-0'>
                         <h5 class='card-title text-center date'>${date}</h5>
-                        <p class='text-center temperature'><strong>${weatherConditions.temp.max} °F / ${weatherConditions.temp.min} °F</strong><br>
+                        <p class='text-center temperature'><strong>${Math.round(weatherConditions.temp.max)}º / ${Math.round(weatherConditions.temp.min)}º</strong><br>
                                <img src='http://openweathermap.org/img/w/${weatherConditions.weather[0].icon}.png' alt='${weatherConditions.weather[0].description} image'>
                         </p>
-                        <p class=' text-center weather-description'>Description: <strong>${weatherConditions.weather[0].description} </strong><br>
-                                 Humidity: <strong>${weatherConditions.humidity}</strong>
+                        <p class='text-center weather-description'><strong>${weatherConditions.weather[0].description} </strong><br>
+                                 Humidity: <strong>${weatherConditions.humidity}%</strong><br>
+                                 Rain: <strong>${Math.round(weatherConditions.pop)}%</strong><br>
+                                 Wind: <strong>${Math.round(weatherConditions.wind_speed)} mph</strong><br>
+                                 UV Index: <strong> ${weatherConditions.uvi}</strong>
                         </p>
-                        <p class='text-center wind'>Wind: <strong>${weatherConditions.wind_speed}</strong></p>
-                        <p class='text-center pressure'>Pressure: <strong> ${weatherConditions.pressure}</strong></p>
                     </div>
                 </div>
+                
             </div>`;
 
         //Adding the Forecast Card to the div with a class of weather-card-container
