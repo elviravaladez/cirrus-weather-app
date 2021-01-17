@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     "use strict";
     //Displaying the Weather Forecast Initially Displayed on the Webpage
     updateWeather(-98.4916, 29.4252);
@@ -16,7 +16,7 @@ $(document).ready(function() {
         });
 
         //Making 5 Day Forecast Cards
-        getFiveDayForecast.done(function(weatherConditions) {
+        getFiveDayForecast.done(function (weatherConditions) {
             let daily = weatherConditions.daily;
             let current = weatherConditions.current;
 
@@ -119,7 +119,7 @@ $(document).ready(function() {
     function onDragEnd() {
         let lngLat = marker.getLngLat();
         updateWeather(lngLat.lng, lngLat.lat);
-        reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(data){
+        reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function (data) {
             $('#city').html(data);
         });
     }
@@ -137,7 +137,7 @@ $(document).ready(function() {
 
 
     //Updating the marker's position to the new search result
-    geocoder.on("result", function(result){
+    geocoder.on("result", function (result) {
         marker.remove();
         let long = result.result.geometry.coordinates[0];
         let lat = result.result.geometry.coordinates[1];
@@ -146,7 +146,7 @@ $(document).ready(function() {
             .addTo(map);
         marker.on('dragend', onDragEnd);
 
-        reverseGeocode({lng: long, lat: lat}, mapboxToken).then(function(data){
+        reverseGeocode({lng: long, lat: lat}, mapboxToken).then(function (data) {
             $('#city').html(data);
         });
 
@@ -159,11 +159,11 @@ $(document).ready(function() {
         let baseUrl = 'https://api.mapbox.com';
         let endPoint = '/geocoding/v5/mapbox.places/';
         return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-            .then(function(res) {
+            .then(function (res) {
                 return res.json();
             })
             // to get all the data from the request (lines below)
-            .then(function(data) {
+            .then(function (data) {
                 return data.features[2].place_name;
             });
     }
