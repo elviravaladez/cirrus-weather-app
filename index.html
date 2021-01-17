@@ -25,39 +25,76 @@
     <script src="https://kit.fontawesome.com/5eae995560.js" crossorigin="anonymous"></script>
     <!--Custom stylesheet-->
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 <body>
 <header>
-    <div class="container-nav">
-        <!--Navbar-->
-        <nav class="navbar navbar-dark">
-            <span class="navbar-brand mb-0 h1 app-name"><i class="fas fa-cloud"></i> Cirrus Weather App</span>
-            <span class="navbar-text text-white font-weight-bold current-city">Current Location: <span id="city">San Antonio, Texas 78205, United States</span></span>
-        </nav>
+    <!-- Dark Mode Toggle -->
+    <div class="custom-control custom-switch text-right">
+        <input type="checkbox" class="custom-control-input" id="darkModeSwitch" onclick="darkMode()">
+        <label class="custom-control-label" for="darkModeSwitch"></label>
+    </div>
+
+    <!-- Geocoder -->
+    <div class="geocoder-container">
+        <div id="geocoder" class="geocoder d-flex justify-content-center"></div>
     </div>
 </header>
 
-<div class="container-main">
-    <!--Main Content-->
-    <main role="main">
-        <!-- Geocoder Search Bar -->
-        <div id="geocoder" class="geocoder"></div>
+<main class="main-container d-flex flex-wrap">
+    <!-- Current City and Date   -->
+    <div class="city-and-date">
+        <h1 class="text-center font-weight-bold pt-2" id="city">San Antonio, Texas 78205, United States</h1>
+        <h6 id="current-date" class="pt-3"></h6>
+    </div>
 
+    <!-- Today's Temperature   -->
+    <div class="current-temperature d-flex">
+        <div class="current-temperature-icon-container"></div>
+        <div class="current-temperature-content-container">
+            <div class="current-temperature-value"></div>
+            <div class="current-temperature-description"></div>
+        </div>
+    </div>
+
+    <!-- Today's Weather Stats   -->
+    <div class="current-stats d-flex justify-content-around text-center">
+        <div>
+            <div id="current-high" class="current-stats-value"></div>
+            <div class="current-stats-label">High</div>
+            <div id="current-low" class="current-stats-value"></div>
+            <div class="current-stats-label">Low</div>
+        </div>
+        <div>
+            <div id="current-wind" class="current-stats-value"></div>
+            <div class="current-stats-label">Wind</div>
+            <div id="current-humidity" class="current-stats-value"></div>
+            <div class="current-stats-label">Humidity</div>
+        </div>
+        <div>
+            <div id="current-sunrise" class="current-stats-value"></div>
+            <div class="current-stats-label">Sunrise</div>
+            <div id="current-sunset" class="current-stats-value"></div>
+            <div class="current-stats-label">Sunset</div>
+        </div>
+    </div>
+
+    <!-- Five Day Forecast   -->
+    <div class="five-day-forecast-main-div">
+        <h4 class="five-day-forecast-heading">Five Day Forecast</h4>
         <!--Weather Card Container-->
-        <div class="weather-card-container scrolling-wrapper">
+        <div class="weather-card-container scrolling-wrapper pb-1">
             <!--Weather Cards Will Display Here-->
         </div>
+    </div>
 
-        <!--Map-->
-        <div class="container-map">
-            <div id="map"></div>
-        </div>
-    </main>
-</div>
-
-<footer>
-
-</footer>
+    <!--Map-->
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+</main>
 
 
 <!--jQuery-->
@@ -75,6 +112,17 @@
 <!--Mapbox Geocoder-->
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 <!--Custom JS -->
+
+<script>
+    //Function for Dark Mode
+    function darkMode() {
+        const element = document.body;
+
+        element.classList.toggle("dark-mode");
+        $(".card").toggleClass("bg-dark");
+    }
+</script>
+
 <script src="js/main.js"></script>
 </body>
 </html>
