@@ -1,74 +1,121 @@
 :root{
-    --body-color: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
-    --nav-color: #141c2a;
-    --weather-card-height: 185px;
-    --current-city-font-color: white;
+    --body-color: linear-gradient(89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
+    --weather-card-height: 250px;
+    --default-weather-card-width: 190px;
     /*Mobile*/
-    --app-name-mobile-font-size: 1em;
-    --city-mobile-font-size: .75em;
-    --weather-card-mobile-font-size: .75em;
+    --city-mobile-font-size: 1.25em;
+    --weather-card-mobile-font-size: .9em;
     --date-mobile-font-size: 1.25em;
     /*Larger Devices*/
-    --app-name-large-font-size: 1.2em;
     --city-large-font-size: 1em;
     --weather-card-large-font-size: .9em;
+    --weather-card-large-height: 250px;
+    --weather-card-large-width: 220px;
     --date-large-font-size: 1em;
+    --default-font-family: 'Poppins', sans-serif;
 }
 
-/* Setting body background color */
+/******DEFAULT STYLING******/
+* {
+    box-sizing: border-box;
+    font-family: var(--default-font-family);
+}
+
 body {
-    background-image: var(--body-color);
-    margin: 0;
-    padding: 0;
+    margin: 12px;
+    height: 100%;
+    background: var(--body-color);
 }
 
-/* Navbar color */
-.navbar {
-    background: var(--nav-color);
+/*Dark Mode Styling*/
+.custom-control-input:checked~.custom-control-label::before {
+    color: black;
+    background-color: deeppink;
+    border-color: purple;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
-/* Font size for application name and current city (both within navbar) */
-.app-name {
-    font-size: var(--app-name-mobile-font-size);
+.dark-mode {
+    background: #100C2A;
+    color: white;
 }
-.current-city {
-    font-size: var(--city-mobile-font-size);
+
+.bg-dark {
+    background: rgba(0,0,0,0.9) !important;
+}
+
+
+/*current city and date */
+.city-and-date {
+    width: 100%;
 }
 
 #city {
-    color: var(--current-city-font-color);
+    margin: 0;
+    font-size: var(--city-mobile-font-size);
 }
 
-.main-container {
-    height: 100%;
+/* current-temperature */
+.current-temperature {
+    margin-top: 0.25em;
     width: 100%;
-    margin-top: 0;
-    overflow: visible;
-    position: relative;
 }
 
-/* Geocoder styling */
-.geocoder {
-    margin: auto 5px;
-    display: flex;
-    justify-content: center;
+.current-temperature-icon-container {
+    flex-grow: 1.25;
+    text-align: center;
 }
 
-/* Scrollable Weather Cards */
-.scrolling-wrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+.current-temperature-content-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.current-temperature-value {
+    font-size: 5.25em;
+    font-weight: 300;
+}
+
+.current-temperature-description {
+    margin-top: -0.5em;
+    margin-left: -0.6em;
+    text-align: center;
+    font-size: 1.125em;
+    text-transform: capitalize;
+}
+
+/* current-stats */
+.current-stats {
+    padding-bottom: 1em;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.current-stats-value {
+    margin-top: 1em;
+    font-size: 1.44em;
+}
+
+.current-stats-label {
+    color: gray;
+}
+
+/* five-day-forecast */
+.five-day-forecast-main-div {
+    width: 100%;
+    margin-top: 1em;
 }
 
 /* Default weather card styling for x-small mobile devices */
 .weather-card {
     justify-content: center;
     display: inline-block;
-    width: 305px;
+    width: var(--default-weather-card-width);
     height: var(--weather-card-height);
-    /*background: white;*/
-    background: transparent;
+    background:rgba(255,255,255, .55);
     border: none;
     font-size: var(--weather-card-mobile-font-size);
 }
@@ -79,389 +126,106 @@ body {
 
 }
 
+.weather-description {
+    text-transform: capitalize;
+}
+
 /* Making background color of text within weather cards transparent */
 .temperature, .weather-description, .wind, .pressure {
     background: transparent;
     margin-bottom: 0;
 }
 
-/* Container for map */
-.container-map {
-    height: 7em;
-    bottom: 0.05em;
-    position: fixed;
-    width: 100%;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
+/* Scrollable Weather Cards */
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
+
+/* Container for map */
+.map-container {
+    height: 15em;
+    width: 100%;
+}
+
 
 /* Mobile map styling */
 #map {
-    width: 96%;
+    width: 100%;
     height: 100%;
     border-radius: 5px;
 }
 
-/* Galaxy Fold */
-@media screen and (min-device-width:280px)
-and (min-device-height: 653px) {
-    .container-map {
-        height: 10em;
-        bottom: 0.1em;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-        display: flex;
-        justify-content: center;
-    }
-}
 
-/* Samsung Galaxy */
-@media screen and (min-device-width:360px) {
-    .container-map {
-        height: 10em;
-        bottom: .2em;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-        display: flex;
-        justify-content: center;
-    }
+/******MEDIA QUERIES******/
 
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 345px;
-        height: var(--weather-card-height);
-        background: white;
-        /*background: transparent;*/
-        /*border: none;*/
-    }
-}
+@media screen and (min-width: 1220px) {
 
-/* iPhone 6, 7, 8 */
-@media screen and (min-device-width:375px) {
-    .container-map {
-        height: 13em;
-        bottom: .5%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 360px;
-        height: var(--weather-card-height);
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-
-}
-
-/* Pixel 2 */
-@media screen and (min-device-width:411px) {
-    .container-map {
-        height: 16em;
-        bottom: .9%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 398px;
-        height: var(--weather-card-height);
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-/* Pixel 2 XL */
-@media only screen
-and (min-device-width: 411px)
-and (min-device-height: 823px)
-and (orientation: portrait) {
-    .container-map {
-        height: 22em;
-        bottom: .9%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 396px;
-        height: var(--weather-card-height);
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-/* iPhone 6+, 7+, 8+ */
-@media screen and (min-device-width:414px) {
-    .container-map {
-        height: 17em;
-        bottom: .9%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-}
-
-
-/* iPhone X and Xs Max */
-@media only screen
-and (min-device-width: 375px)
-and (min-device-height: 812px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-    .container-map {
-        height: 22em;
-        bottom: .9%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-}
-
-/* iPhone XR */
-@media only screen
-and (min-device-width: 414px)
-and (min-device-height: 896px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation: portrait) {
-    .container-map {
-        height: 27em;
-        bottom: .9%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-}
-
-
-/* iPads/Tablets */
-@media only screen and (min-device-width : 768px) {
-    .container-map {
-        height: 38em;
-        bottom: 0;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 305px;
-        height: 225px;
-        /*background: white;*/
-        background: transparent;
-        border: none;
-
-        font-size: var(--weather-card-large-font-size);
-    }
-
-    .date {
-        font-size: var(--date-large-font-size);
-        font-weight: bold;
-
-    }
-
-    /* Font size for application name and current city (both within navbar) */
-    .app-name {
-        font-size: var(--app-name-large-font-size);
-    }
-    .current-city {
-        font-size: var(--city-large-font-size);
-    }
-}
-
-
-/* iPad Pro */
-@media only screen and (min-device-width : 1024px)
-and (min-device-height: 1366px) {
-    .container-map {
-        height: 63em;
-        bottom: 0;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 305px;
-        height: 225px;
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-/* Desktops and laptops ----------- */
-@media only screen  and (min-width : 500px) {
-    .container-map {
-        height: 40%;
-        bottom: 1%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 305px;
-        height: 225px;
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-@media only screen  and (min-width : 769px) {
-    /* Geocoder styling */
-    .geocoder {
-        margin: 20px 0 15px 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .container-map {
-        height: 45%;
-        bottom: 1%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 305px;
-        height: 225px;
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width:1025px) {
-    /* Geocoder styling */
-    .geocoder {
-        margin: 20px 0 15px 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .container-map {
-        height: 40%;
-        bottom: 1%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .weather-card {
-        justify-content: center;
-        display: inline-block;
-        width: 305px;
-        height: 225px;
-        margin-top: 1em;
-        /*background: white;*/
-        background: transparent;
-        border: none;
-    }
-}
-
-/* Extra large devices (large desktops and up) */
-@media screen and (min-width:1201px) {
-    /* Geocoder styling */
-    .geocoder {
-        margin: 20px 0 15px 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .container-map {
-        height: 40%;
-        bottom: 1%;
-        position: fixed;
-        width: 100%;
-        z-index: -1;
-    }
-}
-
-@media screen and (min-width: 1608px) {
     .weather-card-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
+}
 
-    .container-map {
-        height: 40%;
-        bottom: 1%;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
+
+/*Medium in Landscape Mode(tablets, etc)*/
+@media screen and (min-width: 700px) {
+    body {
+        margin: 20px;
+    }
+
+    .current-stats {
+        margin-bottom: 1em;
+        padding-bottom: 0;
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid black;
+    }
+
+    .current-temperature,
+    .current-stats {
+        width: 50%;
     }
 }
 
 
-@media screen and (min-height: 700px) {
-    .container-map {
-        height: 45%;
-        bottom: 1%;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    #current-date, #map-text {
+        font-size: 1.125em;
     }
-}
 
-@media screen and (min-height: 800px) {
-    .container-map {
-        height: 50%;
-        bottom: 1%;
-        position: absolute;
-        width: 100%;
-        z-index: -1;
+    .five-day-forecast-heading {
+        font-size: 1.125em;
     }
-}
 
-
-@media screen and (min-height: 1000px) {
-    .container-map {
-        height: 62%;
-        bottom: 1%;
-        position: absolute;
+    /* Container for map */
+    .map-container {
+        height: 25em;
         width: 100%;
-        z-index: -1;
+    }
+
+    .weather-card {
+        height: var(--weather-card-large-height);
+        width: var(--weather-card-large-width);
     }
 }
 
 
-@media screen and (min-height: 1201px) {
-    .container-map {
-        height: 67%;
-        bottom: 1%;
-        position: absolute;
+/* Large devices (desktops, 920px and up) */
+@media screen and (min-width: 920px) {
+    .main-container {
+        max-width: 1500px;
+        margin: 8px auto;
+        font-size: 1.1em;
+    }
+
+    /* Container for map */
+    .map-container {
+        height: 30em;
         width: 100%;
-        z-index: -1;
     }
 }
