@@ -242,7 +242,7 @@ body {
 /* Large devices (desktops, 920px and up) */
 @media screen and (min-width: 920px) {
     .main-container {
-        max-width: 1500px;
+        max-width: 1210px;
         margin: 8px auto;
         font-size: 1.1em;
     }
