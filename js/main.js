@@ -54,16 +54,17 @@ $(document).ready(function () {
         return dateObject.toLocaleString("en-US", humanDateFormat);
     }
 
-    //Function to Get Day of The Week ONLY
+    //Function to Get Day of The Week Date Shortened AND Without Commas and Year
     function getDayOfTheWeek(weatherConditions) {
         //Converting the Time Stamp Date to a Human Readable Day of The Week
-        let unixTimeStamp = weatherConditions.dt;
-        let milliseconds = unixTimeStamp * 1000;
-        let dateObject = new Date(milliseconds);
-        let humanDateFormat = {
-            weekday: "long"
-        }
-        return dateObject.toLocaleString("en-US", humanDateFormat);
+        const unixTimeStamp = weatherConditions.dt;
+        const milliseconds = unixTimeStamp * 1000;
+        const dateObject = new Date(milliseconds);
+        const dateString = dateObject.toDateString();
+        let date = dateString.split(' ');
+        date = date[0] + " " + date[1] + " " + date[2];
+
+        return date;
     }
 
     //Function to Get Time
