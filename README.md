@@ -20,7 +20,7 @@ HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWe
   - Weather Description
   - Humidity
   - Wind
-  - Pressure
+  - Sunrise / Sunset
 
 <p align="center">
     <img src="media/cirrus-clouds.jpg" alt="Cirrus Clouds">
