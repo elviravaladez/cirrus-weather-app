@@ -82,7 +82,7 @@ $(document).ready(function () {
         //Creating the Forecast Card
         weatherCard +=
             `<div class='d-inline-block card-div'>
-                <div class='card weather-card ml-2 mr-2 mb-3 mb-lg-5 shadow-sm rounded text-center'>
+                <div class='card weather-card ml-2 mr-2 mb-3 mb-lg-5 shadow rounded text-center'>
                     <div class='card-body mt-0 mb-1 p-0 text-center'>
                         <h5 class='card-title text-center date pt-2'>${date}</h5>
                         <p class='temperature'><strong>${Math.round(weatherConditions.temp.max)}º | ${Math.round(weatherConditions.temp.min)}º</strong><br>
