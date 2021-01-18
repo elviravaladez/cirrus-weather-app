@@ -9,6 +9,7 @@ The Cirrus Weather Application was developed to provide users with an easy-to-us
 HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWeatherMap API
 
 ## Features
+* Ability to toggle between light and dark mode
 * Current Location (default set to: San Antonio, Texas 78205, United States)
 * Five-Day Forecast for current location
 * A map with a draggable marker and search bar
@@ -21,7 +22,6 @@ HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWe
   - Weather Description
   - Humidity
   - Wind
-* Ability to toggle between light and dark mode
 
 <p align="center">
     <img src="media/cirrus-clouds.jpg" alt="Cirrus Clouds">
