@@ -153,6 +153,7 @@ $(document).ready(function () {
     //Updating the marker's position to the new search result
     geocoder.on("result", function (result) {
         marker.remove();
+        geocoder.clear();
         let long = result.result.geometry.coordinates[0];
         let lat = result.result.geometry.coordinates[1];
         marker = new mapboxgl.Marker(markerOptions)
