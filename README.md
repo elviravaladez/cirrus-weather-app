@@ -24,5 +24,5 @@ HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWe
   - Wind
 
 <p align="center">
-    <img src="media/cirrus-clouds.jpg" alt="Cirrus Clouds">
+    <img src="img/cirrus-clouds.jpg" alt="Cirrus Clouds">
 </p>
