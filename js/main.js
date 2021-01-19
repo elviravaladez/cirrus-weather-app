@@ -91,10 +91,10 @@ $(document).ready(function () {
                         </p>
                         <p class='weather-description pb-2'><strong>${weatherConditions.weather[0].description}</strong></p>
                         <p>     
-                            Humidity: <strong>${weatherConditions.humidity}%</strong><br>
-                            Wind: <strong>${Math.round(weatherConditions.wind_speed)} mph</strong><br>
-                            Sunrise: <strong>${getTime(weatherConditions.sunrise)}</strong><br>
-                            Sunset: <strong> ${getTime(weatherConditions.sunset)}</strong>
+                            <strong>Humidity:</strong> ${weatherConditions.humidity}%<br>
+                            <strong>Wind:</strong> ${Math.round(weatherConditions.wind_speed)} mph<br>
+                            <strong>Sunrise:</strong> ${getTime(weatherConditions.sunrise)}<br>
+                            <strong>Sunset:</strong> ${getTime(weatherConditions.sunset)}
                         </p>
                     </div>
                 </div>
