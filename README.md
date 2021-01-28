@@ -1,5 +1,5 @@
 # Cirrus Weather Application
-[comment]: <> (# Working Site: [Cirrus Weather Application]&#40;&#41;)
+# Working Site: [Cirrus Weather Application]()
 
 For people who take their weather "cirr-iously." 😉
 
