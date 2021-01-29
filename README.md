@@ -3,7 +3,7 @@
 
 For people who take their weather "cirr-iously." 😉
 
-The Cirrus Weather Application was developed to provide users with an easy-to-use resource for getting a glimpse at the weekly weather forecast for a designated location.
+The Cirrus Weather Application was developed to provide users with an easy-to-use resource for viewing the weekly weather forecast for a designated location.
 
 ## Built With
 HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWeatherMap API
