@@ -107,8 +107,8 @@ body {
 .current-stats {
     padding-bottom: 1em;
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .current-stats-value {
@@ -200,7 +200,7 @@ body {
         padding-bottom: 0;
         border-top: none;
         border-bottom: none;
-        border-left: 1px solid black;
+        border-left: 1px solid gray;
     }
 
     .current-temperature,
