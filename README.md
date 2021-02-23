@@ -1,5 +1,5 @@
 # Cirrus Weather Application
-# Working Site: [Cirrus Weather Application](https://cirrusweatherapp.netlify.app/)
+# [Working Site](https://cirrusweatherapp.netlify.app/)
 
 For people who take their weather "cirr-iously." 😉
 
