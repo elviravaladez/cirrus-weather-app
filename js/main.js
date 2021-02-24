@@ -111,7 +111,7 @@ $(document).ready(function () {
     //Customizing the Map
     let mapOptions = {
         container: 'map',
-        style: 'mapbox://styles/elviravaladez/ckj64zj1w3mw719ld92pjhli0', // stylesheet location
+        style: 'mapbox://styles/elviravaladez/cklj3z6n50k6317qk01o809g1',
         center: [-98.4916, 29.4252], // starting position [lng, lat]
         zoom: 12 // starting zoom
     }
@@ -140,6 +140,18 @@ $(document).ready(function () {
     }
 
     marker.on('dragend', onDragEnd);
+
+    function toggleDarkMode() {
+        const darkModeCheck = $('#darkModeSwitch:checked');
+        const element = document.body;
+        element.classList.toggle("dark-mode");
+        if (darkModeCheck.length === 1)
+            map.setStyle("mapbox://styles/elviravaladez/ckj64zj1w3mw719ld92pjhli0");
+        else
+            map.setStyle("mapbox://styles/elviravaladez/cklj3z6n50k6317qk01o809g1");
+    }
+
+    $('#darkModeSwitch').on('click', toggleDarkMode);
 
     // Adding a Mapbox text input to search by location and have the forecast update when a new location is searched
     let geocoder = new MapboxGeocoder({
