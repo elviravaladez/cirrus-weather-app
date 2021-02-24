@@ -34,7 +34,6 @@ body {
 }
 
 /* DARK MODE STYLING */
-/* switch */
 .custom-control-input:checked~.custom-control-label::before {
     background-color: deeppink;
     border-color: purple;
