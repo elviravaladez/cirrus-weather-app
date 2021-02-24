@@ -7,7 +7,7 @@
 ---
 
 <h3>
-  <a href="https://cirrusweatherapp.netlify.app/">Working Site</a> 
+  <a href="https://cirrusweatherapp.netlify.app/">Demo</a> 
 </h3>
 
 ---
