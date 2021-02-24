@@ -69,8 +69,7 @@ $(document).ready(function () {
 
     //Function to Get Time
     function getTime(weatherConditions) {
-        let unix_timestamp = weatherConditions;
-        let date = new Date(unix_timestamp * 1000);
+        let date = new Date(weatherConditions * 1000);
 
         return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
