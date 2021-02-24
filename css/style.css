@@ -28,6 +28,7 @@
 body {
     margin: 12px;
     height: 100%;
+    background-color: #100C2A;
     background-image: var(--light-background);
     color: var(--default-font-color);
 }
