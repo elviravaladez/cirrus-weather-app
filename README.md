@@ -7,7 +7,7 @@
 ---
 
 <h3>
-  <a href="https://cirrusweatherapp.netlify.app/" target="_blank">Working Site</a> 
+  <a href="https://cirrusweatherapp.netlify.app/">Working Site</a> 
 </h3>
 
 ---
@@ -50,7 +50,7 @@ The Cirrus Weather Application was developed to provide users with an easy-to-us
   - Weather Description
   - Humidity
   - Wind
-
+  
 [Back To The Top](#cirrus-weather-app)
 
 ---
