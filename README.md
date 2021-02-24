@@ -1,12 +1,37 @@
-# Cirrus Weather Application
-# [Working Site](https://cirrusweatherapp.netlify.app/)
+# Cirrus Weather App
 
-For people who take their weather "cirr-iously." 😉
+<p align="center">
+    <img src="img/cirrus-weather-app.png" alt="Cirrus Weather App">
+</p>
 
+---
+### [Working Site](https://cirrusweatherapp.netlify.app/)
+
+---
+
+### Table of Contents
+- [Description](#description)
+- [Features](#features)
+- [Author Information](#author)
+
+---
+
+## Description
 The Cirrus Weather Application was developed to provide users with an easy-to-use resource for viewing the weekly weather forecast for a designated location.
 
-## Built With
-HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWeatherMap API
+#### Built With:
+* HTML
+* CSS
+* JavaScript
+* jQuery
+* Bootstrap
+* AJAX
+* Mapbox GL JS API
+* OpenWeatherMap API
+
+[Back To The Top](#cirrus-weather-application)
+
+---
 
 ## Features
 * Current Location (default set to: San Antonio, Texas 78205, United States)
@@ -23,6 +48,11 @@ HTML, CSS, JavaScript, Bootstrap, jQuery, AJAX, Mapbox GL JS API, and the OpenWe
   - Humidity
   - Wind
 
-<p align="center">
-    <img src="img/cirrus-clouds.jpg" alt="Cirrus Clouds">
-</p>
+[Back To The Top](#cirrus-weather-application)
+
+---
+
+## Author
+[Elvira Valadez](https://github.com/elviravaladez)
+
+[Back To The Top](#cirrus-weather-application)
