@@ -5,7 +5,11 @@
 </p>
 
 ---
-### [Working Site](https://cirrusweatherapp.netlify.app/)
+
+<h3>
+  <a href="https://cirrusweatherapp.netlify.app/" target="_blank">Working Site</a> 
+</h3>
+
 
 ---
 
@@ -29,7 +33,7 @@ The Cirrus Weather Application was developed to provide users with an easy-to-us
 * Mapbox GL JS API
 * OpenWeatherMap API
 
-[Back To The Top](#cirrus-weather-application)
+[Back To The Top](#cirrus-weather-app)
 
 ---
 
@@ -48,11 +52,11 @@ The Cirrus Weather Application was developed to provide users with an easy-to-us
   - Humidity
   - Wind
 
-[Back To The Top](#cirrus-weather-application)
+[Back To The Top](#cirrus-weather-app)
 
 ---
 
 ## Author
 [Elvira Valadez](https://github.com/elviravaladez)
 
-[Back To The Top](#cirrus-weather-application)
+[Back To The Top](#cirrus-weather-app)
