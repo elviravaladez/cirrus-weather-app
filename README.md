@@ -10,7 +10,6 @@
   <a href="https://cirrusweatherapp.netlify.app/" target="_blank">Working Site</a> 
 </h3>
 
-
 ---
 
 ### Table of Contents
