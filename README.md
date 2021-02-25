@@ -15,7 +15,7 @@
 ### Table of Contents
 - [Description](#description)
 - [Features](#features)
-- [Author Information](#author)
+- [Author](#author)
 
 ---
 
